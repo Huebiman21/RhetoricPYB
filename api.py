@@ -5,7 +5,6 @@ from typing import List, Tuple
 from supabase import create_client, Client
 from langchain.embeddings.openai import OpenAIEmbeddings
 from langchain.memory import ConversationBufferMemory
-from langchain.vectorstores import SupabaseVectorStore
 from langchain.chains import ConversationalRetrievalChain
 from langchain.llms import OpenAI
 
@@ -70,8 +69,7 @@ async def filter_file(file: UploadFile, supabase, vector_store):
 async def upload_file(file: UploadFile):
     # Modify your code to work with FastAPI
     # Here we assume that you have some way to get `supabase`, `openai_key`, and `vector_store`
-   
-    print(f"Received file: {file.filename}")
+  
    
     message = await filter_file(file, supabase, vector_store)
     
